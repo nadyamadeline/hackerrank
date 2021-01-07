@@ -134,3 +134,33 @@ function gradingStudents(grades) {
 
 }
 
+// minimum absolute difference
+function minimumAbsoluteDifference(arr) {
+    let arrSort = arr.sort((a,b)=> a-b);
+    let minDiff = Math.abs(arr[0]-arr);
+    for (let i = 0; i< arrSort.length;i++){
+        let absDiff =  Math.abs(arrSort[i]-arrSort[i+1]);
+        if (absDiff < minDiff){
+           minDiff = absDiff;
+        }
+    }
+    console.log(minDiff);
+}
+minimumAbsoluteDifference([3,-7,0])
+
+// bill division
+function bonAppetit(bill, k, b) {
+    let shared = bill.splice(k,1);
+    let total = 0;
+    for (let i = 0; i < bill.length;i++){
+        total += bill[i];
+    }
+    total /= 2;
+    if (total < b || total > b){
+        console.log(Math.abs(total-b));
+    } else {
+        console.log('Bon Appetit!')
+    }
+}
+bonAppetit([3,10,2,9],1,12); // prints 5
+bonAppetit([3,10,2,9],1,7); // prints Bon Appetit
