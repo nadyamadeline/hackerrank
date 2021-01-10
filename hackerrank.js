@@ -5,7 +5,7 @@ function sockMerchant(ar) {
     for (let i = 0; i < ar.length; i++){
         if (ar[i]==ar[i+1]){
             pairs++;
-            i++
+            i++;
         } 
     }
     console.log(pairs);
@@ -124,16 +124,6 @@ function timeConversion(s) {
 timeConversion('10:00:05PM') // prints 22:00:05
 timeConversion('12:45:54PM') // prints 12:45:54
 
-// grading rounding
-function gradingStudents(grades) {
-    for(let i = 0; i < grades.length;i++){
-        if (grades[i] ){
-            
-        }
-    }
-
-}
-
 // minimum absolute difference
 function minimumAbsoluteDifference(arr) {
     let arrSort = arr.sort((a,b)=> a-b);
@@ -164,3 +154,52 @@ function bonAppetit(bill, k, b) {
 }
 bonAppetit([3,10,2,9],1,12); // prints 5
 bonAppetit([3,10,2,9],1,7); // prints Bon Appetit
+
+// extra long factorial
+function extraLongFactorials(n) {
+    n = BigInt(n);
+    let factorial=BigInt(1);
+    for (let i = n; i > 0; i--){
+        factorial *= i;
+    }
+    console.log(String(factorial)); // use String() to remove the 'n' at the end of the long int
+}
+
+// cat and mouse
+function catAndMouse(x, y, z) {
+    if (Math.abs(z-x) == Math.abs(z-y)){
+        console.log(`Mouse C`);
+    } else if (Math.abs(z-x) < Math.abs(z-y)){
+        console.log(`Cat A`);
+    } else {
+        console.log('Cat B');
+    }
+}
+catAndMouse(1,2,3); // prints Cat B
+catAndMouse(1,3,2); // prints Mouse C
+
+// hurdle race
+function hurdleRace(k, height) {
+    height.sort((a,b)=>b-a);
+    if (k >= height[0]){
+     console.log(0)
+    } else if (k < height[0]){
+     console.log(Math.abs(k - height[0]))
+    }
+}
+hurdleRace(4,[1,6,3,5,2]); // prints 2
+
+// utopian tree
+function utopianTree(n) {
+    let height = 1;
+    for (let i = 1; i <= n; i++){
+        if (i%2==0){
+            height += 1;
+        } else {
+            height *= 2;
+        }
+    }
+    console.log(height)
+}
+utopianTree(5); // prints 14
+
