@@ -1,8 +1,8 @@
 // find pairs from an array
-function sockMerchant(ar) {
+function sockMerchant(n,ar) {
     let pairs=0;
     ar.sort((a,b)=>a-b);
-    for (let i = 0; i < ar.length; i++){
+    for (let i = 0; i < n; i++){
         if (ar[i]==ar[i+1]){
             pairs++;
             i++;
@@ -10,7 +10,7 @@ function sockMerchant(ar) {
     }
     console.log(pairs);
 }
-sockMerchant([1,2,2,1,1,3,5,1,2]) // prints 3
+sockMerchant(9,[1,2,2,1,1,3,5,1,2]) // prints 3
 
 // compare score
 function compareTriplets(a, b) {
@@ -203,3 +203,14 @@ function utopianTree(n) {
 }
 utopianTree(5); // prints 14
 
+// make anagram
+function makeAnagram(a,b) {
+    a.split('').forEach(x => {
+        if (b.includes(x)){
+            a = a.replace(x,'');
+            b = b.replace(x,'');
+        }
+    });
+    console.log(a.length+b.length);
+}
+makeAnagram('fcrxzwscanmligyxyvym','jxwtrhvujlmrpdoqbisbwhmgpmeoke'); // prints 30
