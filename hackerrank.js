@@ -126,8 +126,8 @@ timeConversion('12:45:54PM') // prints 12:45:54
 
 // minimum absolute difference
 function minimumAbsoluteDifference(arr) {
-    let arrSort = arr.sort((a,b)=> a-b);
-    let minDiff = Math.abs(arr[0]-arr);
+    let arrSort = arr.sort((a,b) => a-b);
+    let minDiff = Math.abs(arr[0]-arr[1]);
     for (let i = 0; i< arrSort.length;i++){
         let absDiff =  Math.abs(arrSort[i]-arrSort[i+1]);
         if (absDiff < minDiff){
@@ -136,7 +136,7 @@ function minimumAbsoluteDifference(arr) {
     }
     console.log(minDiff);
 }
-minimumAbsoluteDifference([3,-7,0])
+minimumAbsoluteDifference([3,-7,0]); // prints 3
 
 // bill division
 function bonAppetit(bill, k, b) {
@@ -214,3 +214,129 @@ function makeAnagram(a,b) {
     console.log(a.length+b.length);
 }
 makeAnagram('fcrxzwscanmligyxyvym','jxwtrhvujlmrpdoqbisbwhmgpmeoke'); // prints 30
+
+// bubble sort
+function countSwaps(a) {
+    let min = Math.min(...a);
+    let max = Math.max(...a);
+    let n = a.length;
+    let counter = 0;
+    
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n - 1; j++) {
+            // Swap adjacent elements if they are in decreasing order
+            if (a[j] > a[j + 1]) {
+                [a[j],a[j+1]]=[a[j+1],a[j]];
+                counter++;
+            }
+        }
+    }
+    console.log(`Array is sorted in ${counter} swaps.`);
+    console.log(`First element: ${min}`);
+    console.log(`Last element: ${max}`);
+}
+countSwaps([6,3,1]); // sorted in 3 swaps, first element 1, last element 6
+
+// max toys
+function maximumToys(prices, k) {
+    prices.sort((a,b)=>a-b);
+    let counter = 0;
+    let item = 0;
+    let n = prices.length;
+    
+       for (let i = 0 ; i< n; i++){
+           if (counter < k && (counter + prices[i]) < k){
+            counter = counter + prices[i];
+            item++
+           }
+       }
+    console.log(item);
+}
+maximumToys([2,1,3,4],7); // prints 3
+
+// angry professor
+function angryProfessor(k, a) {
+    let countOnTime = 0;
+    for (let i = 0; i < a.length; i++){
+        if (a[i] <= 0){
+            countOnTime++;
+        }
+    }
+    // console.log(countOnTime)
+    if (countOnTime >= k){
+        return `NO`;
+    } else {
+        return `YES`;
+    }
+}
+console.log(angryProfessor(3,[-1,-3,4,2])); // prints YES
+console.log(angryProfessor(2,[0,-1,2,1])); // prints NO
+
+// alternating characters
+function alternatingCharacters(s) {
+    s = s.split('')
+    let counter = 0;
+    for(let i = 0; i < s.length; i++){
+        if(s[i] == s[i+1]){
+            counter++
+        }
+    }
+    console.log(counter)
+}
+alternatingCharacters('AAAA'); // print 3
+alternatingCharacters('BBBBB'); // print 4
+alternatingCharacters('ABABAB'); // print 0
+
+// is balanced
+function isBalanced(s) {
+    s = s.split('');
+    let midArr=[];
+    if (s.length % 2 == 0){
+        let mid = s[s.length/2];
+
+    }
+    console.log(s);
+
+}
+isBalanced('{[()]}')
+
+// 
+function permutationEquation(p) {
+    let result = [];
+    for (let i = 0; i < p.length; i++){
+       p.indexOf(p[i])
+    }
+    console.log(result)
+}
+permutationEquation([4,3,5,1,2]); // prints 1, 3, 5, 4, 2
+
+// service lane
+function serviceLane(n, cases) {
+
+
+}
+serviceLane()
+
+// picking numbers
+function pickingNumbers(a) {
+    a.sort((a,b)=>a-b);
+    // let newArr = [];
+    // for(let i = 0; i<a.length;i++){
+    //     if (Math.abs(a[i]-a[i+1]) == 1){
+    //         if (newArr.includes(a[i])){
+    //             newArr.push(a[i+1]);
+    //         } else {
+    //             newArr.push(a[i]);
+    //             newArr.push(a[i+1]);
+    //         }
+    //     }
+    // }
+    console.log(a)
+    // console.log(newArr);
+
+   
+
+}
+pickingNumbers([1,2,2,3,1,2]); // prints 5
+pickingNumbers([1,1,2,2,4,4,5,5,5]); // prints 5
+
